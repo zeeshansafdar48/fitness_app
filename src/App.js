@@ -8,7 +8,15 @@ import './App.css';
 
 function App() {
   return (
-    <Box width="400px">
+    <Box
+      width="400px"
+      m="auto"
+      sx={{
+        width: {
+          xl: '1488px',
+        },
+      }}
+    >
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
