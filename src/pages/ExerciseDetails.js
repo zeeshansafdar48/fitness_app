@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
+import { exerciseOptions, fetchData, youtubeSearchOptions } from '../utils/fetchData';
 import Detail from '../components/Detail';
 import ExerciseVideos from '../components/ExerciseVideos';
 import SimilarExercises from '../components/SimilarExercises';
 
 function ExerciseDetails() {
   const [exerciseDetail, setExerciseDetail] = useState({});
+  const [exerciseVideos, setExerciseVideos] = useState({});
+  const [targetMuscleExercise, setTargetMuscleExercise] = useState({});
+  const [equipmentMuscleExercise, setEquipmentMuscleExercise] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -20,15 +23,37 @@ function ExerciseDetails() {
         exerciseOptions
       );
       setExerciseDetail(exerciseDetailData);
+
+      const exerciseVideosData = await fetchData(
+        `${youtubeSearchUrl}/search?query=${exerciseDetailData?.name}`,
+        youtubeSearchOptions
+      );
+      setExerciseVideos(exerciseVideosData?.contents);
+
+      const targetMuscleExerciseData = await fetchData(
+        `${exerciseDbUrl}/exercises/target/${exerciseDetailData?.target}`,
+        exerciseOptions
+      );
+      setTargetMuscleExercise(targetMuscleExerciseData);
+
+      const equipmentMuscleExerciseData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData?.equipment}`,
+        exerciseOptions
+      );
+      setEquipmentMuscleExercise(equipmentMuscleExerciseData);
     };
+
     fetchExercisesData();
   }, [id]);
 
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideos />
-      <SimilarExercises />
+      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail?.name} />
+      <SimilarExercises
+        targetMuscleExercise={targetMuscleExercise}
+        equipmentMuscleExercise={equipmentMuscleExercise}
+      />
     </Box>
   );
 }
