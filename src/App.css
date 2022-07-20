@@ -52,15 +52,6 @@ body {
   height: 742px;
 }
 
-.hero-banner-img {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 800px;
-  height: 900px;
-  border-bottom-left-radius: 5rem;
-}
-
 .exercise-card {
   width: 400px;
   height: 445px;
@@ -100,8 +91,26 @@ body {
   flex-direction: column;
   gap: 24px;
   width: 387px;
-  height: 381px;
+  height: 250px;
   text-decoration: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-banner-img {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 900px;
+    height: 720px;
+    opacity: 0.9;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .hero-banner-img {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -119,14 +128,6 @@ body {
     position: static !important;
   }
 
-  .hero-banner-img {
-    display: none;
-  }
-
-  .exercise-card {
-    width: 320px;
-  }
-
   .exercise-video {
     width: 320px;
     height: 300px;
@@ -137,4 +138,14 @@ body {
   .exercise-card {
     width: 280px;
   }
+}
+
+.exercise-video-image {
+  border-radius: 1rem;
+  box-shadow: 5px 7px #ff2525aa;
+  transition: transform 0.3s;
+}
+
+.exercise-video-image:hover {
+  transform: scale(1.1);
 }

@@ -2,16 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
-import Logo from '../assets/images/Logo.png';
+import Logo from '../assets/images/fitnfit.png';
+import useWindowSize from '../hooks/useWindowSize';
 
 function Navbar() {
+  const [width] = useWindowSize();
   return (
     <Stack
-      direction={'row'}
+      direction={width > 768 ? 'row' : 'column'}
       justifyContent="space-around"
       sx={{
         gap: {
-          sm: '122px',
+          lg: '122px',
           xs: '40px',
         },
         mt: {
@@ -19,11 +21,12 @@ function Navbar() {
           xs: '20px',
         },
         justifyContent: 'none',
+        alignItems: 'center',
       }}
       px="20px"
     >
       <Link to="/">
-        <img src={Logo} alt="Logo" style={{ width: '48px', height: '48px', margin: '0 20px' }} />
+        <img src={Logo} alt="Logo" style={{ width: '148px', height: '78px', margin: '0 20px' }} />
       </Link>
       <Stack direction={'row'} gap="40px" fontSize="24px" alignItems={'flex-end'}>
         <Link

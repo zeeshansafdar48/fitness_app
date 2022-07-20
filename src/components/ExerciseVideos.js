@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
+import Loader from './Loader';
 
 function ExerciseVideos({ exerciseVideos, name }) {
-  console.log('exerciseVideos', exerciseVideos);
   if (!exerciseVideos?.length) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   return (
     <Box
@@ -34,8 +34,12 @@ function ExerciseVideos({ exerciseVideos, name }) {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={item?.video?.thumbnails[0]?.url} alt={item?.video?.title} />
-            <Box>
+            <img
+              src={item?.video?.thumbnails[0]?.url}
+              alt={item?.video?.title}
+              className="exercise-video-image"
+            />
+            <Box pl={'5px'}>
               <Typography variant="h5" color="#000">
                 {item?.video.title}
               </Typography>

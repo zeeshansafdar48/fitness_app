@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Stack, Typography, Button } from '@mui/material';
-import HeroBannerImage from '../assets/images/banner2.jpg';
+import { Box, Typography, Button } from '@mui/material';
+import HeroBannerImage from '../assets/images/banner.jpg';
 
 function HeroBanner() {
   return (
@@ -8,13 +8,13 @@ function HeroBanner() {
       p="20px"
       sx={{
         mt: {
-          lg: '212px',
           xs: '70px',
         },
         ml: {
           sm: '50px',
         },
       }}
+      className="hero-banner-wrapper"
     >
       <Typography color="#ff2625" fontWeight={'600'} fontSize="26px">
         Fitness Club
@@ -60,7 +60,7 @@ function HeroBanner() {
       >
         Exercise
       </Typography>
-      {/* <img src={HeroBannerImage} alt="HeroBannerImage" className="hero-banner-img" /> */}
+      <img src={HeroBannerImage} alt="HeroBannerImage" className="hero-banner-img" />
     </Box>
   );
 }
