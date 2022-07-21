@@ -16,6 +16,7 @@ function ExerciseCard({ exercise }) {
             textTransform: 'capitalize',
             borderRadius: '20px',
           }}
+          className="exercise-card-button-body-part"
         >
           {exercise?.bodyPart}
         </Button>
@@ -28,6 +29,7 @@ function ExerciseCard({ exercise }) {
             textTransform: 'capitalize',
             borderRadius: '20px',
           }}
+          className="exercise-card-button-target"
         >
           {exercise?.target}
         </Button>

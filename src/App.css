@@ -149,3 +149,12 @@ body {
 .exercise-video-image:hover {
   transform: scale(1.1);
 }
+
+.exercise-card-button-body-part:hover {
+  color: #ffa9a9 !important;
+  border: 1px solid #ffa9a9 !important;
+}
+.exercise-card-button-target:hover {
+  color: #fcc757 !important;
+  border: 1px solid #fcc757 !important;
+}

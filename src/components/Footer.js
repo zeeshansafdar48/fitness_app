@@ -9,7 +9,7 @@ function Footer() {
       <Stack gap="40px" alignItems="center" px="40px" pt="24px">
         <img src={Logo} alt="Logo" style={{ width: '200px', height: '105px' }} />
         <Typography variant="h5" pb="40px">
-          Made with Love by Zeeshan Safdar
+          Made with Honour by Zeeshan Safdar
         </Typography>
       </Stack>
     </Box>
