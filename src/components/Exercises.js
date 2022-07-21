@@ -35,7 +35,7 @@ function Exercises({ exercises, bodyPart, setExercises }) {
       setExercises(exercisesData);
     };
     fetchExercisesData();
-  }, [bodyPart]);
+  }, [bodyPart, setExercises]);
 
   return (
     <Box id="exercises" sx={{ mt: { lg: '110px' } }} mt="50px" p="20px">
